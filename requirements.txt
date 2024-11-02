@@ -4,3 +4,5 @@ tensorflow  # Asegúrate de especificar la versión adecuada si es necesario
 Pillow
 numpy
 python-multipart
+ipykernel
+opencv-python
