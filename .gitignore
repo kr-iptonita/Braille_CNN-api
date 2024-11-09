@@ -9,3 +9,4 @@ Braille_Dataset.zip
 /.conda
 /Reconocimiento de caracteres braile en imagenes o textos/.conda
 *.keras
+/train
