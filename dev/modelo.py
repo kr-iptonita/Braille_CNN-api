@@ -1,6 +1,6 @@
 import os  # Importar el módulo para operaciones del sistema
 import numpy as np  # Importar NumPy para operaciones matemáticas y arreglos
-import pandas as pd  # Importar Pandas para manipulación de datos
+#import pandas as pd  # Importar Pandas para manipulación de datos
 from shutil import copyfile  # Importar función para copiar archivos
 import matplotlib.pyplot as plt  # Importar Matplotlib para graficar
 
