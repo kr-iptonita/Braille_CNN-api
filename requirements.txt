@@ -1,9 +1,10 @@
 fastapi
 uvicorn
-tensorflow  # Asegúrate de especificar la versión adecuada si es necesario
+tensorflow
 Pillow
 numpy
 python-multipart
 ipykernel
 opencv-python
 matplotlib
+scipy

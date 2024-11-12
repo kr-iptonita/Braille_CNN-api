@@ -12,20 +12,24 @@ from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, EarlyStopping  #
 from tensorflow.keras.preprocessing import image  # Importar funciones de preprocesamiento de imágenes de Keras
 from tensorflow.keras.preprocessing.image import ImageDataGenerator  # Importar generador de datos de imágenes
 
+rootdir = 'Braille_Dataset/'  # Directorio raíz del conjunto de datos
+
+
 # Crear un directorio para almacenar las imágenes, solo si no existe
-if not os.path.exists('./images/'):
-    os.mkdir('./images/')
+if not os.path.exists('./train/'):
+    os.mkdir('./train/')
     alpha = 'a'  # Inicializar la letra para los directorios
     for i in range(0, 26):  # Crear directorios para cada letra de la A a la Z
-        os.mkdir('./images/' + alpha)
+        os.mkdir('./train/' + alpha)
         alpha = chr(ord(alpha) + 1)  # Pasar a la siguiente letra
+        
 else:
-    print("El directorio './images/' ya existe. Omite la creación de carpetas.")
+    print("El directorio './train/' ya existe. Omite la creación de carpetas.")
 
-rootdir = 'Braille_Dataset/'  # Directorio raíz del conjunto de datos
+
 for file in os.listdir(rootdir):  # Recorrer los archivos en el directorio
     letter = file[0]  # Obtener la letra del archivo
-    copyfile(rootdir + file, './images/' + letter + '/' + file)  # Copiar el archivo a su respectivo directorio
+    copyfile(rootdir + file, './train/' + letter + '/' + file)  # Copiar el archivo a su respectivo directorio
 
 # Inicializar el generador de datos de imágenes con aumentos
 datagen = ImageDataGenerator(rotation_range=20,
@@ -33,12 +37,12 @@ datagen = ImageDataGenerator(rotation_range=20,
                              validation_split=0.2)
 
 # Crear un generador para el conjunto de entrenamiento
-train_generator = datagen.flow_from_directory('./images/',
+train_generator = datagen.flow_from_directory('./train/',
                                               target_size=(28, 28),
                                               subset='training')
 
 # Crear un generador para el conjunto de validación
-val_generator = datagen.flow_from_directory('./images/',
+val_generator = datagen.flow_from_directory('./train/',
                                             target_size=(28, 28),
                                             subset='validation')
 
