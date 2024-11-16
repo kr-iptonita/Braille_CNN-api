@@ -72,7 +72,7 @@ model.summary()
 history = model.fit(
     train_generator,
     validation_data=val_generator,
-    epochs=666,  # Número de épocas
+    epochs=999,  # Número de épocas
     callbacks=[model_ckpt, reduce_lr, early_stop],  # Callbacks
     verbose=1  # Mostrar información del entrenamiento
 )
@@ -86,12 +86,13 @@ print('Precisión del modelo: {}'.format(round(acc, 4)))  # Mostrar la precisió
 plt.plot(history.history['loss'], label='pérdida de entrenamiento')
 plt.plot(history.history['val_loss'], label='pérdida de validación')
 plt.legend()
-plt.show()
 plt.savefig('LossVal_loss')  # Guardar la gráfica de pérdida
+plt.show()
+
 
 # Graficar la precisión durante el entrenamiento
 plt.plot(history.history['accuracy'], label='precisión de entrenamiento')
 plt.plot(history.history['val_accuracy'], label='precisión de validación')
 plt.legend()
-plt.show()
 plt.savefig('AccVal_acc')  # Guardar la gráfica de precisión
+plt.show()
