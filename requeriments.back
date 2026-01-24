@@ -1,0 +1,11 @@
+fastapi==0.100.0
+uvicorn==0.23.0
+tensorflow==2.13.1
+Pillow==10.1.0
+numpy==1.24.3
+python-multipart==0.0.6
+ipykernel==6.26.0
+opencv-python==4.8.1.78
+matplotlib==3.8.2
+scipy==1.11.4
+tensorflow-rocm==2.13.1.600
